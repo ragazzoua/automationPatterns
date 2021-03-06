@@ -1,0 +1,12 @@
+In this basic example, we have two login components. The second one has an additional “cancel” button.
+The conventional way to handle this would be to create classes for each component. The second would have the login functionality of the first plus the “cancel” functionality. However, creating more than one class leads to code duplication and disconnects each new component variation from its peers. It gets even more complex if you have multiple login components, for desktop and mobile for example.
+
+Let’s look at it from the decorator perspective instead!
+
+
+The LoginComponent is the interface for every login component. It states that each component needs to have a defined login method.
+The BasicLoginComponent has a concrete implementation of a login method. In this example, it just outputs “Basic login” on the command line.
+This class is the heart of the pattern. A LoginDecorator can take any LoginComponent and wrap some functionality around it. After this, the result remains a LoginComponent.
+This MobileLoginDecorator overrides the basic login functionality with a new class that is specific to mobile. Again, it simply outputs “Mobile login” to keep this example short.
+This CancelButtonDecorator can add the cancel functionality to any login component.
+Even though this seems to be a lot of overhead at first, it is less work in the long run. You  need only to implement the changed or added functionality in a decorator and add it to the component you want to change. This keeps your test code concise and modular.
