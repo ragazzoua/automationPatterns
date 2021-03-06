@@ -1,0 +1,14 @@
+One of the first patterns specific to UI automation is the page object pattern. This means that all functionality of a specific web UI is wrapped into a class. This is good for simple views without a lot of interaction possibilities as the page objects are clear and manageable.
+
+However, if a specific page contains a lot of functionality, page object classes can get huge and turn into complex and chaotic code. This is where an extension of page objects comes in: page components.The idea is to wrap a component’s functionality into a class instead of the whole page.
+
+This is a very basic web shop that includes a search and a result list of found products. If you implement this using a page object, the result could look something like this WebshopPage class.
+For now, this approach is OK. But if more functionality is added to this page, the test code could quickly get messy.
+Page Components Example
+
+This is where page components come in. In our case, you could separate the page into two components: a search bar and a result list.
+
+The SearchBar class needs to contain only the search method.
+The methods for checking the result headline and the results themselves belong to the ResultList:
+
+This solution requires more classes but there is much less code in each, making this easier to understand and maintain. It also allows for better reusability of each component in case the component appears on more than one page.
