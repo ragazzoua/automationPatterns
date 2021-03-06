@@ -1,0 +1,9 @@
+For this example, we can extend the page component example above and use a factory to create the components.
+
+First, we need a class from which all of our components inherit, so all have an initialisation method. We could also use an interface if each future component might have a different initialisation method. For simplicity’s sake, let’s assume initialisation is the same for all.
+Each of the components above can inherit from this Component class:
+The missing piece is the factory class that is in charge of producing components. For illustration purposes, the factory class takes a component name as an argument, creates an instance of the according class, calls its initialize method and returns it back.
+The code of the main class does not look different because the WebshopPage is still in charge of managing its components.
+The component is requested, created, and initialised as expected.
+
+Like the examples before, there are more classes now. The advantage is that there is a centralised place for retrieving and initialising components, which makes development more efficient if future components have to be implemented.
