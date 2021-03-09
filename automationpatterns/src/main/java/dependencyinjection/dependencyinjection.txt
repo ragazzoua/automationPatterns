@@ -1,0 +1,5 @@
+Here, we want to provide some login functionality for a UI test of a simple website. However, we want to store the username and password directly inside a class so we don’t need to pass it whenever we want to invoke a login. Also, our requirement is that we can have multiple sets of username and password depending on the test case. This new requirement keeps us from simply including the login data inside of the login page, as it has to remain flexible. That’s why “injecting” the data from the outside is a good choice.
+
+This is the LoginData interface that all of our login data instances should implement. It simply returns a username and password.
+Let’s review two implementations, one for “real” and one for “fake” login data.
+The LoginPage constructor accepts an instance of a LoginData class and uses it in its login method. So the actual username and password to use is not managed by the login page itself, but instead is chosen and injected from the outside.
